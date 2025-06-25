@@ -1,0 +1,715 @@
+/* ====================共用========================= */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
+        sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+ul li {
+    /* margin-right: 10px; */
+    /* background-color: bisque; */
+    /* width: auto; */
+}
+
+/* 把 a 的大小變大 */
+ul li a {
+    /* background-color: yellow; */
+    padding: 16px 8px 10px;
+}
+
+ul li:hover span {
+    border-bottom: 2px solid red;
+}
+
+ul li:hover span.login {
+    border-bottom: none;
+}
+
+ul li a:focus {
+    outline: 1px dashed red;
+    outline-offset: -2px;
+}
+
+ul li a:focus span {
+    border-bottom: 2px solid red;
+}
+
+ul li a:focus span.login {
+    border-bottom: none;
+}
+
+.container-normal {
+    width: 80%;
+    margin: auto;
+    max-width: 1600px;
+}
+
+@media (max-width:1084px) {
+    .container-normal {
+        width: 96%;
+    }
+}
+
+@media (max-width:540px) {
+    .container-normal {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+
+.container-full {
+    width: 100%;
+    margin: auto;
+    max-width: 1920px;
+}
+
+/* span:hover {
+    text-decoration: underline;
+} */
+
+/* .btn {
+    height: 100%;
+    font-size: 16px;
+    line-height: 1;
+    margin: 8px 0px;
+    padding: 10px 12px;
+    background-color: blue;
+    border-radius: 2px;
+    color: white;
+} */
+
+/* .btn:hover {
+    background-color: #004a7f;
+} */
+
+.w-100 {
+    width: 100%;
+}
+
+/* ====================共用========================= */
+/* =======================標題========================= */
+nav {
+    /* background-color: aqua; */
+    height: 54px;
+    position: relative;
+}
+
+@media (max-width:860px) {
+    nav.container-normal {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+/* hamburger */
+nav .left-btn {
+    display: none;
+}
+
+nav .left-btn .ham-btn {
+    width: 50%;
+    height: 40%;
+    position: relative;
+}
+
+nav .left-btn .ham-btn .line {
+    background-color: black;
+    width: 80%;
+    height: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+}
+
+nav .left-btn .ham-btn .line-1 {
+    top: 25%;
+}
+
+nav .left-btn .ham-btn .line-2 {
+    top: 50%;
+}
+
+nav .left-btn .ham-btn .line-3 {
+    top: 75%;
+}
+
+/* tablet-dropdown-menu */
+nav .tablet-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: -13%;
+    width: 100vw;
+    background-color: #f2f2f2;
+    color: #262626;
+    font-size: 15px;
+}
+
+nav .tablet-dropdown-menu ul li {
+    min-height: 51px;
+    border-bottom: 1px solid rgba(228, 228, 228, 0.7);
+}
+
+nav .tablet-dropdown-menu ul.menu-list>li {
+    margin: 1px;
+}
+
+
+nav .tablet-dropdown-menu ul.menu-list>li>a,
+nav .tablet-dropdown-menu ul.menu-list>li>label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px 15px 15px;
+    background-color: #f2f2f2;
+    font-size: 15px;
+    color: #262626;
+    text-decoration: none;
+    cursor: pointer;
+    height: 100%;
+}
+
+nav .tablet-dropdown-menu ul.menu-list li .submenu {
+    display: none;
+    padding-top: 1px;
+    padding-left: 30px;
+    background-color: #f2f2f2;
+}
+
+
+nav .tablet-dropdown-menu ul.menu-list li .submenu li a {
+    display: block;
+    height: 100%;
+    padding: 14px 15px 15px;
+    text-decoration: none;
+    color: #262626;
+    background-color: #f2f2f2;
+    font-size: 15px;
+}
+
+/* 摺疊設定 */
+nav .tablet-dropdown-menu ul.menu-list li input[type="checkbox"] {
+    display: none;
+}
+
+nav .tablet-dropdown-menu ul.menu-list li input[type="checkbox"]:checked+label+.submenu {
+    display: block;
+}
+
+nav .tablet-dropdown-menu ul.menu-list li input[type="checkbox"]+label i.fa-chevron-down {
+    display: inline-block;
+}
+
+nav .tablet-dropdown-menu ul.menu-list li input[type="checkbox"]:checked+label i.fa-chevron-down {
+    display: none;
+}
+
+nav .tablet-dropdown-menu ul.menu-list li input[type="checkbox"]:checked+label i.fa-chevron-up {
+    display: inline-block;
+}
+
+nav .tablet-dropdown-menu ul.menu-list li input[type="checkbox"]+label i.fa-chevron-up {
+    display: none;
+}
+
+
+nav #ham-menu-switch:checked+.left-btn .ham-btn .line-1 {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+nav #ham-menu-switch:checked+.left-btn .ham-btn .line-2 {
+    display: none;
+}
+
+nav #ham-menu-switch:checked+.left-btn .ham-btn .line-3 {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+nav #ham-menu-switch:checked~.tablet-dropdown-menu {
+    display: block;
+    z-index: 9;
+}
+
+/* logo */
+nav .logo {
+    width: 137px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width:860px) {
+    nav .logo {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+}
+
+nav .logo img {
+    width: 108px;
+    height: 23px;
+}
+
+/* menu */
+nav .menu {
+    font-size: 13px;
+}
+
+nav .menu li a {
+    color: #262626;
+}
+
+nav .pc-menu {
+    position: absolute;
+    top: 0;
+    left: 137px;
+    width: 790px;
+    height: 100%;
+}
+
+@media (max-width:860px) {
+    nav ul.pc-menu {
+        display: none;
+    }
+}
+
+nav .pc-menu li {
+    display: inline-block;
+}
+
+nav .pc-menu li a {
+    border: 1px solid transparent;
+    display: inline-block;
+    margin-top: 1px;
+    padding: 16px 8px 10px;
+    height: 48px;
+    outline-offset: -2px;
+}
+
+nav .pc-menu li a span:hover,
+nav .menu-right .menu-right-list a span:hover {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+
+nav .menu-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 15px; */
+}
+
+nav .menu-right .menu-switch {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav .menu-right .menu-right-list {
+    display: inline-block;
+    padding: 0px 5px;
+}
+
+nav .menu-right .menu-right-list a {
+    color: black;
+}
+
+nav .menu-right .menu-right-list a i {
+    width: 17px;
+    height: 17px;
+}
+
+nav .menu-right .login-pic {
+    display: flex;
+    align-items: center;
+}
+
+nav .menu-right .login-pic .login {
+    width: 32px;
+    height: 32px;
+}
+
+/* 摺疊設定 */
+nav #dropdown-menu-switch:checked~.menu-right .menu-switch {
+    background-color: #f2f2f2;
+}
+
+nav #dropdown-menu-switch:checked~.nav-dropdown {
+    display: block;
+}
+
+/* nav-dropdown-menu */
+nav .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: -3%;
+    width: 1230px;
+    height: 456px;
+    margin-top: -2px;
+    background-color: #f2f2f2;
+    z-index: 9;
+}
+
+nav .nav-dropdown .nav-dropdown-menu {
+    padding: 1px 0 10px 20px;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    border-bottom: 2px;
+    border-color: rgba(0, 0, 0, 0.05);
+    height: calc(100% - 40px);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+nav .nav-dropdown .nav-dropdown-menu ul {
+    /* background-color: #fff; */
+    width: calc(100% / 6);
+    font-size: 13px;
+}
+
+nav .nav-dropdown .nav-dropdown-menu ul li {
+    margin-bottom: 10px;
+}
+
+nav .nav-dropdown .nav-dropdown-menu ul p {
+    font-weight: bold;
+}
+
+nav .nav-dropdown .nav-dropdown-menu ul li a span {
+    color: #262626;
+}
+
+nav .nav-dropdown .menu-btm {
+    width: 100%;
+    height: 40px;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+}
+
+nav .nav-dropdown .menu-btm a {
+    color: #000000cc;
+    font-size: 13px;
+}
+
+nav .nav-dropdown .menu-btm a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1399px) and (min-width: 1084px) {
+
+    nav .menu-right .menu-right-list .search,
+    nav .menu-right .menu-right-list .shopping-cart {
+        display: none;
+    }
+
+    nav .menu-right .menu-right-list .search,
+    nav .menu-right .menu-right-list .fa-solid {
+        margin-right: 5px;
+    }
+
+    nav .nav-dropdown {
+        width: 80%;
+        height: 700px;
+    }
+
+}
+
+/* ==========================標題============================== */
+/* ================大圖==================== */
+
+header {
+    background-color: lightblue;
+    width: 100%;
+    position: relative;
+}
+
+/* ================大圖==================== */
+/* ===============三個選項=================== */
+
+main {
+    /* background-color: lemonchiffon; */
+    max-height: 15000px;
+    position: relative;
+}
+
+main.container-normal section {
+    /* background-color: cadetblue; */
+    /* height: 450px; */
+    margin-bottom: 50px;
+}
+
+main section.three-choice {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+main section.three-choice .one-choice {
+    margin: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+main section.three-choice .one-choice.choice-1 {
+    width: 169px;
+    height: 72px;
+}
+
+main section.three-choice .one-choice.choice-2 {
+    width: 127px;
+    height: 72px;
+}
+
+main section.three-choice .one-choice.choice-3 {
+    width: 124px;
+    height: 72px;
+}
+
+main section.three-choice .one-choice img {
+    width: 40px;
+    height: 40px;
+}
+
+main section.three-choice .one-choice {
+    font-size: 16px;
+}
+
+main section.three-choice .one-choice:hover {
+    text-decoration: underline;
+}
+
+/* ===============三個選項=================== */
+/* ===============四張圖片=================== */
+
+main section.four-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main section.four-cards .one-card {
+    background-color: #fff;
+    width: calc((100% - 20px * 3) / 4);
+    height: 450px;
+    /* background-color: blue; */
+    box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
+        0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
+    position: relative;
+}
+
+main section.four-cards-2 .one-card {
+    height: 550px;
+    /* background-color: blue; */
+}
+
+main section.four-cards .one-card .one-card-body {
+    padding: 24px 24px 0;
+}
+
+main section.four-cards .one-card .one-card-body .title {
+    /* width: 90%; */
+    height: 70px;
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+main section.four-cards-2 .one-card .one-card-body .title {
+    /* width: 90%; */
+    height: 120px;
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+main section.four-cards .one-card .one-card-body .content {
+    /* width: 237px; */
+    font-size: 16px;
+}
+
+main section.four-cards .one-card .one-card-footer {
+    padding: 16px 24px 24px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+main section.four-cards .one-card .one-card-footer .link {
+    width: 260px;
+    height: 40px;
+    color: #0067b8;
+    padding: 8px 20px 8px 0px;
+}
+
+/* ===============四張圖片=================== */
+/* =====================big-img============== */
+
+main section.big-img {
+    background-color: lemonchiffon;
+}
+
+/* =====================big-img============== */
+/* =====================other================ */
+main .other {
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+main .other .follow {
+    padding: 0 12px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+main .other .follow ul {
+    display: flex;
+    align-items: center;
+}
+
+main .other .follow ul li {
+    margin-right: 10px;
+}
+
+
+main .other .follow .follow-img {
+    width: 32px;
+    height: 32px;
+}
+
+main .other .follow .Facebook {
+    background-image: url(../microsoft-img/Facebook\ 2x.avif);
+    background-position: center;
+    background-size: cover;
+}
+
+main .other .follow .Youtube {
+    background-image: url(../microsoft-img/YouTube\ 2x.avif);
+    background-position: center;
+    background-size: cover;
+}
+
+main .other p {
+    padding: 0 5px;
+}
+
+/* to-top */
+main .to-top {
+    width: 125px;
+    height: 40px;
+    position: absolute;
+    right: -10%;
+    bottom: 30px;
+    border-radius: 5px;
+    background-color: #bfbfbf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .to-top a {
+    color: black;
+}
+
+
+/* =====================other================ */
+/* =====================footer================ */
+
+footer {
+    background-color: rgb(238, 235, 235);
+    width: 100%;
+    /* height: 400px; */
+    font-size: 11px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+footer .footer-real {
+    /* background-color: pink; */
+    height: 100%;
+    ;
+}
+
+footer .footer-menu {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer .footer-menu ul {
+    /* background-color: azure; */
+    width: calc(100% / 6);
+}
+
+footer .footer-menu ul li {
+    margin-bottom: 10px;
+}
+
+/* =====================footer================ */
